@@ -44,7 +44,7 @@ It's difficult to imagine what web publishing tools and solutions might exist in
 
 I wanted full control over the styling and publishing process, which meant preparing source files locally and forgoing the publishing platform option. FrontPage's graphical interface made it easy to generate HTML; it also had features which helped factorise the common elements. Unfortunately, it's no longer around.
 
-This time around, however, I had the skills and inclination to try a text-based workflow: I would write content in a markup language, which is then run through a tool to transform it into the final HTML. This approach should be more future-proof, separates where changes to the content and presentation need to be made, and any article-specific semantics (perhaps for some interactive widgets in the future!) can be defined if required. For example, the footnotes you see here were defined using such markup [tags](https://github.com/xdl/xiaodili_website/blob/master/blog/colophon/index.md#L22).
+This time around, however, I had the skills and inclination to try a text-based workflow: I would write content in a markup language, which is then run through a tool to transform it into the final HTML. This approach should be more future-proof, separates where changes to the content and presentation need to be made, and any article-specific semantics (perhaps for some interactive widgets in the future!) can be defined if required. For example, the footnotes you see here were defined using such markup [tags](https://raw.githubusercontent.com/xdl/xiaodili_website/master/src/blog/colophon/index.md).
 
 ## Summing up
 
