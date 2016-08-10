@@ -1,0 +1,101 @@
+/*$footer_color: #dedede; //light grey*/
+@font-face {
+  font-family: DejaVuSansMono;
+  src: url("../assets/DejaVuSansMono.ttf"); }
+@font-face {
+  font-family: DroidSerif;
+  font-weight: bold;
+  src: url("../assets/DroidSerif-Bold.ttf"); }
+@font-face {
+  font-family: DroidSerif;
+  src: url("../assets/DroidSerif.ttf"); }
+html {
+  overflow-y: scroll; }
+
+.wrapper {
+  min-height: 100%;
+  margin: 0 auto -2em; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline;
+    cursor: pointer; }
+
+footer {
+  background-color: #F0F0F0;
+  height: 2em; }
+  footer div.container {
+    text-align: center;
+    font-family: "Open Sans";
+    color: #555555;
+    padding: 6px 10px 0px 10px; }
+    footer div.container small > a {
+      color: #555555; }
+
+body {
+  margin: 0px;
+  background-color: #F0F0F0; }
+
+html, body {
+  height: 100%; }
+
+@media screen and (min-width: 640px) {
+  .container {
+    width: 640px !important;
+    margin-right: auto !important;
+    margin-left: auto !important; }
+
+  main {
+    width: 640px !important;
+    margin-right: auto !important;
+    margin-left: auto !important; } }
+header.navbar {
+  background-color: #374140; }
+  header.navbar .container {
+    padding-left: 5px;
+    padding-right: 5px; }
+    header.navbar .container nav {
+      display: inline-block;
+      float: right;
+      vertical-align: bottom;
+      padding: 4px; }
+      header.navbar .container nav .nav_links {
+        color: #F0F0F0;
+        font-family: DejaVuSansMono, Monospace; }
+      header.navbar .container nav a {
+        display: inline-block;
+        padding: 6px 10px 0px 10px; }
+    header.navbar .container #logo {
+      display: inline-block;
+      font-size: 1.6em;
+      padding: 4px;
+      font-family: DejaVuSansMono, Monospace; }
+      header.navbar .container #logo a:hover {
+        text-decoration: none; }
+      header.navbar .container #logo #logo_xiao {
+        color: #1695A3; }
+      header.navbar .container #logo #logo_di {
+        color: #EA2E49; }
+      header.navbar .container #logo #logo_li {
+        color: #F0F0F0; }
+
+main {
+  padding: 0px 5% 25px 5%;
+  font-family: "Open Sans";
+  font-size: 1em;
+  line-height: 1.6em;
+  color: #222222; }
+  main h1 {
+    font-family: DroidSerif;
+    font-weight: normal; }
+  main h2, main h3 {
+    font-family: DroidSerif;
+    font-weight: normal;
+    color: #374140; }
+  main a {
+    color: #1695A3; }
+    main a:visited {
+      color: #1695A3; }
+
+/*# sourceMappingURL=default.css.map */

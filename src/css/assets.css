@@ -1,0 +1,19 @@
+main.assets {
+  width: 900px !important; }
+
+div.image_container {
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+  display: inline-block;
+  text-align: center;
+  width: 100%; }
+  div.image_container img {
+    text-align: center;
+    width: 100%; }
+  div.image_container figcaption {
+    font-style: italic;
+    text-align: center; }
+  div.image_container a {
+    text-align: center; }
+
+/*# sourceMappingURL=assets.css.map */

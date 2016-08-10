@@ -1,0 +1,7 @@
+# ignore compiled files
+
+*.map
+*.scss
+*.sass-cache
+
+/dist

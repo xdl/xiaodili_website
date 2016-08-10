@@ -1,0 +1,43 @@
+/*$footer_color: #dedede; //light grey*/
+.post_title {
+  display: inline-block;
+  margin: 2px; }
+
+.post_date {
+  font-size: 1em;
+  font-family: DejaVuSansMono, Monospace;
+  color: #EA2E49; }
+
+.post_author {
+  font-size: 1em;
+  font-family: DejaVuSansMono, Monospace;
+  /*float: right;*/
+  color: #EA2E49; }
+
+.article_title {
+  display: inline-block; }
+
+blockquote {
+  display: block;
+  padding: 5px 20px 5px 45px;
+  margin: 0 0 20px;
+  position: relative;
+  /*Font*/
+  text-align: justify;
+  /*Borders - (Optional)*/
+  border-left: 15px solid #EA2E49;
+  border-right: 2px solid #EA2E49; }
+  blockquote .quote {
+    padding-right: 25px;
+    font-style: italic; }
+
+/*https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/*/
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em; }
+
+sub {
+  top: 0.4em; }
+
+/*# sourceMappingURL=blog.css.map */

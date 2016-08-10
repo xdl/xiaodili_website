@@ -1,0 +1,8 @@
+{
+    "ext_to_process": [".md", ".html"],
+    "ignored_filenames": [
+        ".sass-cache",
+        "scss",
+        "config.json"
+    ]
+}

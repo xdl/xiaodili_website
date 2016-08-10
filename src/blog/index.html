@@ -1,0 +1,19 @@
+---
+title: Blog
+layout: default
+styles:
+  - css/blog.css
+sort_by_descending:
+  site.blog.exports: date
+---
+<h1>Blog</h1>
+<p>Collection of static prose concerning various subjects.</p>
+{{#site.blog.exports}}
+<section>
+    <header>
+        <h2 class="post_title"><a href="{{url}}/{{link}}">{{title}}</a></h2>
+        <small>&emsp;<span class="post_author">{{author}}</span>, on <span class="post_date">{{date}}</span></small>
+    </header> 
+    <p><i>{{description}}</i></p>
+</section>
+{{/site.blog.exports}}
