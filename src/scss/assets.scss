@@ -1,0 +1,22 @@
+main.assets {
+    width: 900px !important;
+}
+
+div.image_container {
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    display: inline-block;
+    text-align:center;
+    width: 100%;
+    img {
+        text-align: center;
+        width: 100%;
+    }
+    figcaption {
+        font-style: italic;
+        text-align: center;
+    }
+    a {
+        text-align: center;
+    }
+}

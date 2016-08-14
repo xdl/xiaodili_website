@@ -1,0 +1,120 @@
+@import 'colors';
+@import 'dimensions';
+
+$post_header_font: DejaVuSansMono,Monospace;
+$post_contents_font: Helvetica;
+
+
+@media only screen 
+and (max-width: $mobile_threshold)
+and (-webkit-min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    //aggregate
+    section.blog_section {
+        .post_title {
+            display: block !important;
+            font-size: 3em !important;
+            margin-top: 1.2em !important;
+            margin-bottom: 0.5em !important;
+        }
+        p.description {
+            -webkit-margin-before: 0.3em !important; 
+        }
+    }
+    //within the blog
+    .article_heading {
+        .title {
+            display: block !important;
+            font-size: 4em !important;
+            -webkit-margin-after: 10px !important;
+        }
+        -webkit-margin-after: 1.5em !important;
+    }
+    //common
+    .metadata {
+        font-size: xx-small !important;
+        padding: 0.2em !important;
+    }
+}
+
+
+//aggregated
+section.blog_section {
+    .post_title {
+        display: inline-block;
+        margin: 2px;
+    }
+    p.description {
+        -webkit-margin-before: 0.5em;
+    }
+}
+
+//within the blog
+.article_heading {
+    .title {
+        display: inline-block;
+    }
+}
+
+//common
+.metadata {
+    font-size: small;
+    .date {
+        font-family: $post_header_font;
+        color: $c2;
+    }
+
+    .author {
+        font-family: $post_header_font;
+        color: $c2;
+    }
+}
+
+blockquote{
+    display:block;
+    padding: 5px 20px 5px 45px;
+    margin: 0 0 20px;
+    position: relative;
+
+    /*Font*/
+    text-align: justify;
+  
+    /*Borders - (Optional)*/
+    border-left: 15px solid $c2;
+    border-right: 2px solid $c2;
+
+    .blockquote_quote {
+        padding-right: 25px;
+        font-style: italic;
+    }
+
+    .blockquote_author {
+    }
+
+}
+
+figure.blog_figure {
+    text-align:center;
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 0.5em;
+    padding: 0px;
+    img {
+        text-align:center;
+        width: 95%;
+    }
+    figcaption {
+        font-style: italic;
+        text-align: center;
+    }
+}
+
+/*https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/*/
+sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+}
+sub { 
+    top: 0.4em; 
+}

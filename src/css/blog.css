@@ -1,21 +1,40 @@
 /*$footer_color: #dedede; //light grey*/
-.post_title {
+@media only screen and (max-width: 900px) and (-webkit-min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  section.blog_section .post_title {
+    display: block !important;
+    font-size: 3em !important;
+    margin-top: 1.2em !important;
+    margin-bottom: 0.5em !important; }
+  section.blog_section p.description {
+    -webkit-margin-before: 0.3em !important; }
+
+  .article_heading {
+    -webkit-margin-after: 1.5em !important; }
+    .article_heading .title {
+      display: block !important;
+      font-size: 4em !important;
+      -webkit-margin-after: 10px !important; }
+
+  .metadata {
+    font-size: xx-small !important;
+    padding: 0.2em !important; } }
+section.blog_section .post_title {
   display: inline-block;
   margin: 2px; }
+section.blog_section p.description {
+  -webkit-margin-before: 0.5em; }
 
-.post_date {
-  font-size: 1em;
-  font-family: DejaVuSansMono, Monospace;
-  color: #EA2E49; }
-
-.post_author {
-  font-size: 1em;
-  font-family: DejaVuSansMono, Monospace;
-  /*float: right;*/
-  color: #EA2E49; }
-
-.article_title {
+.article_heading .title {
   display: inline-block; }
+
+.metadata {
+  font-size: small; }
+  .metadata .date {
+    font-family: DejaVuSansMono, Monospace;
+    color: #EA2E49; }
+  .metadata .author {
+    font-family: DejaVuSansMono, Monospace;
+    color: #EA2E49; }
 
 blockquote {
   display: block;
@@ -27,9 +46,22 @@ blockquote {
   /*Borders - (Optional)*/
   border-left: 15px solid #EA2E49;
   border-right: 2px solid #EA2E49; }
-  blockquote .quote {
+  blockquote .blockquote_quote {
     padding-right: 25px;
     font-style: italic; }
+
+figure.blog_figure {
+  text-align: center;
+  width: 100%;
+  margin: 0px;
+  margin-bottom: 0.5em;
+  padding: 0px; }
+  figure.blog_figure img {
+    text-align: center;
+    width: 95%; }
+  figure.blog_figure figcaption {
+    font-style: italic;
+    text-align: center; }
 
 /*https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/*/
 sup, sub {

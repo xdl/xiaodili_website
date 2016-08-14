@@ -1,0 +1,169 @@
+@import 'colors';
+@import 'dimensions';
+
+@font-face {font-family: DejaVuSansMono; src: url('../assets/DejaVuSansMono.ttf');}
+@font-face {
+    font-family: DroidSerif;
+    font-weight: bold;
+    src: url('../assets/DroidSerif-Bold.ttf');
+}
+@font-face {
+    font-family: DroidSerif;
+    src: url('../assets/DroidSerif.ttf');
+}
+$header_font: DroidSerif;
+$body_font: 'Open Sans';
+$body_color: #222222;
+$logo_font: DejaVuSansMono,Monospace;
+$nav_links_font: DejaVuSansMono,Monospace;
+$nav_padding: 2px;
+$footer_height: 2em;
+$font_size: 1em;
+$line_height: 1.6em;
+$max_site_width: 640px;
+
+html {
+    overflow-y:scroll;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin:0 auto (-$footer_height);
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+footer {
+    background-color: $footer_color;
+    height: $footer_height;
+    div.container {
+        text-align:center;
+        font-family: $body_font;
+        color: $footer_font_color;
+        padding: 5px 10px 5px 10px;
+        small>a {
+            color: $footer_font_color;
+        }
+    }
+}
+
+body {
+    margin: 0px;
+    background-color: $c3;
+}
+
+html, body {
+    height: 100%;
+}
+
+@media screen 
+and (max-width: $mobile_threshold)
+and (-webkit-min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+
+    h1 {
+        font-size: 4em !important;
+    }
+
+    .container {
+        width: auto !important;
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+    main {
+        width: auto !important;
+        font-size: 0.8em !important;
+    }
+    header {
+        #logo {
+            font-size: 2.6em !important;
+        }
+        nav {
+            font-size: 2em !important;
+        }
+    }
+}
+
+.container {
+    width: $max_site_width;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+main {
+    width: $max_site_width;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px 5% 3em 5%;
+    font-family: $body_font;
+    font-size: $font_size;
+    line-height: $line_height;
+    color: $body_color;
+    h1 {
+        font-family: $header_font;
+        font-weight: normal;
+    }
+    h2,h3 {
+        font-family: $header_font;
+        font-weight: normal;
+        color: $navbar_color;
+    }
+    //lock down visited
+    a {
+        color: $c1;
+        &:visited {
+            color: $c1;
+        }
+    }
+}
+
+header.navbar {
+    background-color: $navbar_color;
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+        nav {
+            .nav_links {
+                color: $c3;
+                font-family: $nav_links_font;
+            }
+            display: inline-block;
+            float: right;
+            vertical-align: bottom;
+            padding: $nav_padding;
+            a {
+                display: inline-block;
+                padding: 6px 10px 0px 10px;
+            }
+        }
+        #logo {
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            display: inline-block;
+            font-size: 1.6em;
+            padding: $nav_padding;
+            font-family: $logo_font;
+            #logo_xiao {
+                color: $c1;
+            }
+
+            #logo_di {
+                color: $c2;
+            }
+
+            #logo_li {
+                color: $c3;
+            }
+        }
+    }
+}
+
