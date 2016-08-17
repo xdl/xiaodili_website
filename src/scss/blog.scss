@@ -35,6 +35,13 @@ and (orientation: portrait) {
         font-size: xx-small !important;
         padding: 0.2em !important;
     }
+
+    figure.blog_figure {
+        padding-bottom: 4em !important;
+        padding-top: 4em !important;
+        margin-bottom: 0px !important;
+    }
+
 }
 
 
@@ -99,6 +106,8 @@ figure.blog_figure {
     margin: 0px;
     margin-bottom: 0.5em;
     padding: 0px;
+    padding-bottom: 1em !important;
+    padding-top: 1em !important;
     img {
         text-align:center;
         width: 95%;

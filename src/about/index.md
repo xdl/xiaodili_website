@@ -1,5 +1,5 @@
 ---
-title: About Me
+title: About
 layout: default
 ---
 # About
@@ -20,7 +20,4 @@ Welcome to my personal website! I'm Eddie, a philomath currently living in Londo
 
 ## Getting in Touch
 
-You can reach me at `eddie at xiaodi.li`. If you are interested in collaborating on a project, domains I would particularly like to be involved in are science, mental health and education. I'm also on:
-
-* [LinkedIn](https://www.linkedin.com/in/eddie-xiao-di-li-325614107)
-* [GitHub](https://github.com/xdl)
+You can reach me at `eddie at xiaodi.li`. If you are interested in collaborating on a project, domains I would particularly like to be involved in are science, mental health and education.
