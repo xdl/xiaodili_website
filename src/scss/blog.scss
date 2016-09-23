@@ -2,20 +2,22 @@
 @import 'dimensions';
 
 $post_header_font: DejaVuSansMono,Monospace;
-$post_contents_font: Helvetica;
-
 
 @media only screen 
 and (max-width: $mobile_threshold)
 and (-webkit-min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
     //aggregate
+
+    //h1 blog
+    .title {
+        line-height: 1.1em !important; //to mirror within the blog
+    }
     section.blog_section {
+        line-height: 1.3em;
         .post_title {
             display: block !important;
-            font-size: 3em !important;
             margin-top: 1.2em !important;
-            margin-bottom: 0.5em !important;
         }
         p.description {
             -webkit-margin-before: 0.3em !important; 
@@ -25,25 +27,27 @@ and (orientation: portrait) {
     .article_heading {
         .title {
             display: block !important;
-            font-size: 4em !important;
-            -webkit-margin-after: 10px !important;
+            line-height: 1.1em !important;
         }
-        -webkit-margin-after: 1.5em !important;
     }
     //common
     .metadata {
         font-size: xx-small !important;
+        display: inline !important;
         padding: 0.2em !important;
     }
 
     figure.blog_figure {
-        padding-bottom: 4em !important;
-        padding-top: 4em !important;
+        padding-bottom: 1em !important;
+        padding-top: 1em !important;
         margin-bottom: 0px !important;
     }
 
-}
+    blockquote {
+        padding: 5px 0px 5px 15px !important;
+    }
 
+}
 
 //aggregated
 section.blog_section {
@@ -60,12 +64,15 @@ section.blog_section {
 .article_heading {
     .title {
         display: inline-block;
+        margin-bottom: 5px;
     }
+    margin-bottom: 15px;
 }
 
 //common
 .metadata {
     font-size: small;
+    display:inline-block;
     .date {
         font-family: $post_header_font;
         color: $c2;

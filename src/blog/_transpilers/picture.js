@@ -1,3 +1,4 @@
+var Mustache = require('mustache');
 /* Img with caption
  * 
  * Usage:
@@ -15,9 +16,14 @@
  *
  */
 
-exports.picture = function(text, env) {
+exports.picture = function(src, env) {
+    var absolute_src = Mustache.render(src, env);
+    return `<figure class="blog_figure"><img src="${absolute_src}"/></figure>`;
+}
+
+exports.pictureWithCaption = function(text, env) {
     var src, caption;
     [src, caption] = text.split("|");
-    var absolute_src = env.url + "/" + src;
+    var absolute_src = Mustache.render(src, env);
     return `<figure class="blog_figure"><img src="${absolute_src}"/><figcaption>${caption}</figcaption></figure>`;
 }

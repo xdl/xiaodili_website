@@ -1,23 +1,16 @@
 ---
-layout: default
+layout: blog
 export_to: site.blog
 title: Colophon
 description: Laying the groundwork for things to come
 author: Eddie Li
 link: blog/colophon
 styles:
-  - css/blog.css
   - css/footnotes.css
 scripts:
   - blog/colophon/scripts/script.js
 date: 2016/08/10
 ---
-<!--<div class="article_heading">-->
-<div class="article_heading">
-<h1 class="title"><a href="{{url}}/blog/">Blog</a>/{{page.title}}</h1>
-<span class="metadata">by <span class="author">{{page.author}}</span>, on <span class="date">{{page.date}}</span></span>
-</div>
-
 {{#blockquote}}"You missed one thing, Wiggum... I filled the [bowling] balls with a funnel."|Homer Simpson{{/blockquote}}
 
 The last time I had any sort of web presence, WordPress had yet to be released, Microsoft FrontPage was a thing, and the musical group Busted were poised to take the world by storm{{#ref}}2002 | A popular blogging solution, a discontinued WYSIWYG HTML editor, a faded pop trio, in that order{{/ref}}.

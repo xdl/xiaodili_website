@@ -1,27 +1,18 @@
 @import 'colors';
 @import 'dimensions';
 
-@font-face {font-family: DejaVuSansMono; src: url('../assets/DejaVuSansMono.ttf');}
-@font-face {
-    font-family: DroidSerif;
-    font-weight: bold;
-    src: url('../assets/DroidSerif-Bold.ttf');
-}
-@font-face {
-    font-family: DroidSerif;
-    src: url('../assets/DroidSerif.ttf');
-}
-$header_font: DroidSerif;
+$header_font: 'Droid Serif';
 $body_font: 'Open Sans';
 $body_color: #222222;
-$logo_font: DejaVuSansMono,Monospace;
-$nav_links_font: DejaVuSansMono,Monospace;
+$logo_font: "DejaVuSansMono", Monospace;
+$nav_links_font: "DejaVuSansMono", Monospace;
 $nav_padding: 2px;
 $footer_height: 2em;
 $font_size: 1em;
 $line_height: 1.6em;
 $max_site_width: 640px;
 
+// hackery to get the footer to show up at the bottom, even with insufficient content
 html {
     overflow-y:scroll;
 }
@@ -47,7 +38,7 @@ footer {
         font-family: $body_font;
         color: $footer_font_color;
         padding: 5px 10px 5px 10px;
-        small>a {
+        small.footer_message > a {
             color: $footer_font_color;
         }
     }
@@ -67,10 +58,6 @@ and (max-width: $mobile_threshold)
 and (-webkit-min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
 
-    h1 {
-        font-size: 4em !important;
-    }
-
     .container {
         width: auto !important;
         padding-left: 5% !important;
@@ -82,11 +69,18 @@ and (orientation: portrait) {
     }
     header {
         #logo {
-            font-size: 2.6em !important;
+            font-size: 1.2em !important;
         }
         nav {
-            font-size: 2em !important;
+            font-size: 0.8em !important;
+            a {
+                padding: 4px 0px 0px 4px !important;
+            }
         }
+    }
+
+    small.footer_message {
+        font-size: xx-small !important;
     }
 }
 
@@ -121,6 +115,10 @@ main {
             color: $c1;
         }
     }
+    code {
+        color: $c2;
+    }
+
 }
 
 header.navbar {
@@ -158,6 +156,8 @@ header.navbar {
 
             #logo_di {
                 color: $c2;
+                position: relative;
+                top: 1px; //optical illusion...
             }
 
             #logo_li {

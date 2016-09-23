@@ -1,6 +1,7 @@
 ul.footnotes {
-  list-style-type: none; }
+  list-style-type: none;
+  padding: 0; }
   ul.footnotes li {
-    text-indent: -1.2em; }
+    padding: 0; }
 
 /*# sourceMappingURL=footnotes.css.map */

@@ -1,3 +1,35 @@
+@import 'dimensions';
+
 div.noprojects {
     text-align: center;
+}
+
+@media only screen 
+and (max-width: $mobile_threshold)
+and (-webkit-min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    .title {
+        line-height: 1.1em !important; //to mirror within the project
+    }
+    //aggregate
+    section.project_section {
+        .project_title {
+            display: block !important;
+            margin-top: 1.2em !important;
+        }
+        p.description {
+            -webkit-margin-before: 0.3em !important; 
+        }
+    }
+}
+
+//aggregated
+section.project_section {
+    .project_title {
+        display: inline-block;
+        margin: 2px;
+    }
+    p.description {
+        -webkit-margin-before: 0.5em;
+    }
 }

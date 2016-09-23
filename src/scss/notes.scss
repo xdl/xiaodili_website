@@ -1,0 +1,59 @@
+@import 'colors';
+
+.toc {
+    ol {
+        list-style: none;
+    }
+    ol:first-child > li {
+        margin-left: 0em;
+    }
+    ol:first-child {
+        padding: 0;
+    }
+}
+
+div.notes_footer {
+    font-style: italic;
+    height: 200px;
+    text-align: center;
+    display: table;
+    span {
+        code {
+            font-style: normal;
+        }
+        vertical-align: middle;
+        display: table-cell;
+    }
+};
+
+#toc_scrolling {
+    position: fixed;
+    top: 30px;
+    width: 200px;
+    a {
+        color: $greyed_out;
+        text-decoration: none;
+        &:visited {
+            color: $greyed_out;
+        };
+    }
+    code.mark {
+        color: $c2;
+        float: right;
+    }
+}
+
+h2, h3 {
+    display: inline;
+}
+
+#toc_content {
+    code {
+        position: relative;
+        bottom: 2px;
+        border: 1px solid $code_border;
+        background: $code_background;
+        padding: 1px 3px;
+        white-space: nowrap;
+    }
+}

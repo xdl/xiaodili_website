@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{url}}/{{.}}" type="text/css" media="all"/>
     {{/styles}}
     <link rel="stylesheet" href="{{url}}/css/default.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{url}}/css/blog.css" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
     <style type="text/css">
@@ -43,7 +44,11 @@
             </div>
         </header>
         <main>
-{{{contents}}}
+            <div class="article_heading">
+            <h1 class="title"><a href="{{url}}/blog/">Blog</a>/{{title}}</h1>
+            <span class="metadata">by <span class="author">{{author}}</span>, on <span class="date">{{date}}</span></span>
+            </div>
+            {{{contents}}}
         </main>
     </div>
     <footer>

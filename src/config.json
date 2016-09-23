@@ -1,8 +1,8 @@
 {
-    "ext_to_process": [".md", ".html"],
+    "ext_to_process": [".markdown"],
     "ignored_filenames": [
+        "_scrap.md",
         ".sass-cache",
-        "scss",
-        "config.json"
+        "scss"
     ]
 }

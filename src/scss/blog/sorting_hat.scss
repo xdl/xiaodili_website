@@ -1,0 +1,41 @@
+.prelude {
+    font-style: italic;
+}
+
+.retake_container {
+    text-align: center;
+    #quiz_retake {
+        display: inline-block;
+    }
+}
+
+#quiz {
+    margin-bottom: 1em;
+}
+
+#quiz_submission {
+    text-align: center;
+    #quiz_feedback {
+        margin-top: 1em;
+        font-style: italic;
+    }
+}
+
+.quiz_options {
+    label {
+        margin-left: 0.3em;
+    }
+}
+
+.quiz {
+    /*border: 1px solid grey;*/
+    /*background-color: #F8ECC2;*/
+    /*p {*/
+        /*padding-top: 0.5em;*/
+        /*padding-left: 0.5em;*/
+        /*padding-right: 0.5em;*/
+    /*}*/
+    /*form {*/
+        /*padding: 5px;*/
+    /*}*/
+}

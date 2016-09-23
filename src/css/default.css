@@ -1,14 +1,3 @@
-/*$footer_color: #dedede; //light grey*/
-@font-face {
-  font-family: DejaVuSansMono;
-  src: url("../assets/DejaVuSansMono.ttf"); }
-@font-face {
-  font-family: DroidSerif;
-  font-weight: bold;
-  src: url("../assets/DroidSerif-Bold.ttf"); }
-@font-face {
-  font-family: DroidSerif;
-  src: url("../assets/DroidSerif.ttf"); }
 html {
   overflow-y: scroll; }
 
@@ -30,7 +19,7 @@ footer {
     font-family: "Open Sans";
     color: #555555;
     padding: 5px 10px 5px 10px; }
-    footer div.container small > a {
+    footer div.container small.footer_message > a {
       color: #555555; }
 
 body {
@@ -41,9 +30,6 @@ html, body {
   height: 100%; }
 
 @media screen and (max-width: 900px) and (-webkit-min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  h1 {
-    font-size: 4em !important; }
-
   .container {
     width: auto !important;
     padding-left: 5% !important;
@@ -54,9 +40,14 @@ html, body {
     font-size: 0.8em !important; }
 
   header #logo {
-    font-size: 2.6em !important; }
+    font-size: 1.2em !important; }
   header nav {
-    font-size: 2em !important; } }
+    font-size: 0.8em !important; }
+    header nav a {
+      padding: 4px 0px 0px 4px !important; }
+
+  small.footer_message {
+    font-size: xx-small !important; } }
 .container {
   width: 640px;
   margin-right: auto;
@@ -72,16 +63,18 @@ main {
   line-height: 1.6em;
   color: #222222; }
   main h1 {
-    font-family: DroidSerif;
+    font-family: "Droid Serif";
     font-weight: normal; }
   main h2, main h3 {
-    font-family: DroidSerif;
+    font-family: "Droid Serif";
     font-weight: normal;
     color: #374140; }
   main a {
     color: #1695A3; }
     main a:visited {
       color: #1695A3; }
+  main code {
+    color: #EA2E49; }
 
 header.navbar {
   background-color: #374140; }
@@ -95,7 +88,7 @@ header.navbar {
       padding: 2px; }
       header.navbar .container nav .nav_links {
         color: #F0F0F0;
-        font-family: DejaVuSansMono, Monospace; }
+        font-family: "DejaVuSansMono", Monospace; }
       header.navbar .container nav a {
         display: inline-block;
         padding: 6px 10px 0px 10px; }
@@ -103,13 +96,15 @@ header.navbar {
       display: inline-block;
       font-size: 1.6em;
       padding: 2px;
-      font-family: DejaVuSansMono, Monospace; }
+      font-family: "DejaVuSansMono", Monospace; }
       header.navbar .container #logo a:hover {
         text-decoration: none; }
       header.navbar .container #logo #logo_xiao {
         color: #1695A3; }
       header.navbar .container #logo #logo_di {
-        color: #EA2E49; }
+        color: #EA2E49;
+        position: relative;
+        top: 1px; }
       header.navbar .container #logo #logo_li {
         color: #F0F0F0; }
 

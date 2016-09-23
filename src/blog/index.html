@@ -6,17 +6,16 @@ styles:
 sort_by_descending:
   site.blog.exports: date
 ---
-<h1>Blog</h1>
-<p>Collection of static prose concerning various subjects.</p>
+<h1 class='title'>Blog</h1>
+<p>Collection of static prose on various subjects.</p>
 {{#site.blog.exports}}
 <section class="blog_section">
     <header class="blog_post">
         <h2 class="post_title"><a href="{{url}}/{{link}}">{{title}}</a></h2>
-        <span class="metadata">by <span class="author">{{author}}</span>, on <span class="date">{{date}}</span></small>
+        <span class="metadata">by <span class="author">{{author}}</span>, on <span class="date">{{date}}</span></span>
     </header> 
     <p class="description">
         <i>{{description}}</i>
     </p>
 </section>
 {{/site.blog.exports}}
-<p style="opacity:0;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>

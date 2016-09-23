@@ -1,16 +1,24 @@
 ---
-layout: default
 title: Projects
+layout: default
 styles:
   - css/projects.css
 ---
-<h1>Projects</h1>
-<p>Anything that's actively worked on or that might be periodically updated will be posted here.</p>
-
-{{#site.projects.exports}}
-{{/site.projects.exports}}
+<h1 class='title'>Projects</h1>
+<p>Things continuously being worked on or that might be periodically updated.</p>
 
 {{^site.projects.exports}}
+<section class="project_section">
+    <header>
+        <h2 class="project_title"><a href="{{url}}/{{link}}">{{title}}</a></h2>
+    </header> 
+    <p class="description">
+        <i>{{description}}</i>
+    </p>
+</section>
+{{/site.projects.exports}}
+
+{{#site.projects.exports}}
 <div class="noprojects">
     <i>Nothing to see here yet - check back soon!</i>
 </div>
