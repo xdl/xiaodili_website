@@ -10,6 +10,7 @@ var GRYFFINDOR = "gryffindor";
 var RAVENCLAW = "ravenclaw";
 var SLYTHERIN = "slytherin";
 var HUFFLEPUFF = "hufflepuff";
+var NUM_HOUSES = 4;
 
 var giveIncompleteFeedback = function(unanswered, quiz_feedback_dom) {
     quiz_feedback_dom.innerHTML = constructFeedbackString(unanswered);
@@ -49,7 +50,13 @@ var showHouse = function(house) {
     house_index_map[RAVENCLAW] = 3;
 
     var house_index = house_index_map[house];
-    $houses[house_index].style.display = 'block';
+    for (var i = 0; i < NUM_HOUSES; i++) {
+        if (i == house_index) {
+            $houses[i].style.display = 'block';
+        } else {
+            $houses[i].style.display = 'none';
+        }
+    }
 }
 
 var isValidHouse = function(hash) {
@@ -149,6 +156,19 @@ var hideHouses = function() {
     }
 };
 
+var checkHash = function() {
+    var hash = window.location.hash.slice(1);
+    var footnote_prefix_check = hash.slice(0,3);
+    if (footnote_prefix_check == "src" || footnote_prefix_check == "ref") {
+    }
+    else if (isValidHouse(hash)) {
+        redirectToHouse(hash);
+    } else {
+        window.location.hash = '';
+        $quiz_retake_button.style.display = 'none';
+    }
+}
+
 window.onload = function() {
     //initialising the DOM elements of interest
     $quiz = document.getElementById('quiz');
@@ -164,13 +184,10 @@ window.onload = function() {
 
     hideHouses();
     //checking for hash
-    var hash = window.location.hash.slice(1);
-    if (isValidHouse(hash)) {
-        redirectToHouse(hash);
-    } else{
-        window.location.hash = '';
-        $quiz_retake_button.style.display = 'none';
-    }
+
+    checkHash();
+    window.onhashchange = checkHash;
+    //speed up devving:
     //loadPartialAnswers();
     //loadAllAnswers();
 };

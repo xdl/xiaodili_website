@@ -14,12 +14,12 @@ $max_site_width: 640px;
 
 // hackery to get the footer to show up at the bottom, even with insufficient content
 html {
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
 
 .wrapper {
     min-height: 100%;
-    margin:0 auto (-$footer_height);
+    margin: 0 auto (-$footer_height);
 }
 
 a {
@@ -117,6 +117,17 @@ main {
     }
     code {
         color: $c2;
+        position: relative;
+        bottom: 2px;
+        border: 1px solid $code_border;
+        background: $code_background;
+        padding: 1px 3px;
+        white-space: nowrap;
+    }
+    //ignore border and nowrap for block code, though
+    pre > code { 
+        white-space: pre;
+        border: none;
     }
 
 }
@@ -166,4 +177,3 @@ header.navbar {
         }
     }
 }
-

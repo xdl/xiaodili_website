@@ -3,6 +3,7 @@
     "ignored_filenames": [
         "_scrap.md",
         ".sass-cache",
+        "_includes",
         "scss"
     ]
 }

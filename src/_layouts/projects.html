@@ -1,48 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eddie Li | {{title}}</title>
-    {{#styles}}
-    <link rel="stylesheet" href="{{url}}/{{.}}" type="text/css" media="all"/>
-    {{/styles}}
-    <link rel="stylesheet" href="{{url}}/css/default.css" type="text/css" media="all" />
+    {{#include}}default_head_resources{{/include}}
     <link rel="stylesheet" href="{{url}}/css/projects.css" type="text/css" media="all" />
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
-    <style type="text/css">
-    @font-face {
-        font-family: "DejaVuSansMono";
-        src: url({{#asset}}DejaVuSansMono.ttf{{/asset}}) format("truetype");
-    }
-    </style>
-    <link rel="icon" type="image/png" href="{{url}}/assets/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="{{url}}/assets/favicon-32x32.png" sizes="32x32">
-    {{#analytics}}UA-81667559-1{{/analytics}}
-    {{#scripts}}
-    <script type="text/javascript" src="{{url}}/{{.}}"></script>
-    {{/scripts}}
 </head>
 <body>
     <div class='wrapper'>
-        <header class='navbar'>
-            <div class='container'>
-                <div id="logo" title="Back to Home">
-                    <a href="/">
-                        <span title="xiāo [adj]: light, ethereal" id='logo_xiao'>xiao</span>
-                        <span id='logo_di'>di</span>
-                        <span id='logo_li'>li</span>
-                    </a>
-                </div>
-                <nav>
-                    <a title="About me" class='nav_links' href="{{url}}/about">About</a>
-                    <a title="Articles and blog posts" class='nav_links' href="{{url}}/blog">Blog</a>
-                    <a title="Projects I've been working on" class='nav_links' href="{{url}}/projects">Projects</a>
-                </nav>
-            </div>
-        </header>
+        {{#include}}default_header{{/include}}
         <main>
             <div class="article_heading">
             <h1 class="title"><a href="{{url}}/projects/">Projects</a>/{{title}}</h1>
@@ -50,10 +14,6 @@
             {{{contents}}}
         </main>
     </div>
-    <footer>
-        <div class='container'>
-            <small class='footer_message'>© Xiao Di Li 2016. Made with <a href="https://www.github.com/xdl/craft">craft</a></small>
-        </div>
-    </footer>
+    {{#include}}default_footer{{/include}}
 </body>
 </html>

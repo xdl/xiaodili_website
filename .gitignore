@@ -8,6 +8,7 @@
 *.css
 *.sass-cache
 
+/dst
 /dist
 /node_modules
 /src/projects/notes/*/

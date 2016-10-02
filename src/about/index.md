@@ -11,7 +11,7 @@ Welcome to my personal website! I'm Eddie, a philomath currently living in Londo
 ## Background
 
 * I'm originally from Shengyang but spent my childhood in Belfast. Since then, I've lived in Cambridge, Johannesburg, Chennai and now London.
-* I read Natural Sciences at the University of Cambridge and hold an MSc in Computing Science at Imperial College London. Between that time, I had the amazing chance to work abroad, developing science content for an [eLearning company](http://www.heymath.com).
+* I read Natural Sciences at the University of Cambridge and hold an MSc in Computing Science at Imperial College London. Between that time, I had the amazing chance to work abroad, developing educational science content with [HeyMath](http://www.heymath.com).
 
 ## Interests
 

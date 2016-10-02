@@ -10,6 +10,7 @@ $ribbon-tail: 10px;
 .bookmark {
     display: inline-block;
     float: right;
+    cursor: default;
 
     .ribbon {
         padding:0 0 $ribbon-tail 0;

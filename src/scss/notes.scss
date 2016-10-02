@@ -1,5 +1,10 @@
 @import 'colors';
 
+//h1 {
+    //background: $navbar_color;
+    //color: $c3;
+//}
+
 .toc {
     ol {
         list-style: none;
@@ -40,20 +45,20 @@ div.notes_footer {
     code.mark {
         color: $c2;
         float: right;
+        cursor: default;
     }
+}
+
+#mark_preview {
+    font-family: "DejaVuSansMono", Monospace;
+    position: fixed;
+    bottom: 0.5em;
+    right: 0.5em;
+    padding: 0.2em;
+    border: 1px solid $code_border;
+    background: $code_background;
 }
 
 h2, h3 {
     display: inline;
-}
-
-#toc_content {
-    code {
-        position: relative;
-        bottom: 2px;
-        border: 1px solid $code_border;
-        background: $code_background;
-        padding: 1px 3px;
-        white-space: nowrap;
-    }
 }

@@ -25,18 +25,18 @@ It's interesting to think about the technical and aesthetic options that were av
 
 If there was an *Antiques Roadshow* style show where people would take old websites they've found to experts, who would inspect the source and evaluate which year it was written, I would definitely watch it.
 
-In the past decade, the web's visual landscape has gone through many movements: the rise of Flash introduced splash pages and highly bespoke interfaces, CSS3 browser adoption brought hassle-free colour gradients to the masses, Bootstrap homogenised the look and feel of web applications and landing pages, and Apple iOS7 and Microsoft Metro repopularised flat design. Figuring that a 'timeless' design might be out of reach, I took a closer look at the websites of people I admire or whose content I consume to get some inspiration.
+In the past decade, the web's visual landscape has gone through many movements: the rise of Flash introduced splash pages and highly bespoke interfaces, CSS3 browser adoption brought hassle-free colour gradients to the masses, Bootstrap homogenised the look and feel of web applications and landing pages, and Apple iOS7 and Microsoft Metro repopularised flat design. Figuring that a 'timeless' design might be out of reach, I took a closer look at the websites of people I admire for inspiration.
 
 There is a parsimonious elegance to be found in the web's default fonts and colours; many academics have a presence consisting of a main page in Times New Roman/Arial scattered with links to their writing{{#ref}} academic | e.g. [Jeffrey Ullman](http://infolab.stanford.edu/~ullman/), [Gerald Jay Sussman](http://groups.csail.mit.edu/mac/users/gjs/gjs.html) and [Geoffrey Hinton](http://www.cs.toronto.edu/~hinton/){{/ref}}. After all, content **is** king; Isaac Newton could have published *Principia* in Choose Your Own Adventure format with Comic Sans and it would still be regarded as one of history's most important works.
 
-I earmarked a couple of blogs that had great content, as well as being easy on the eyes{{#ref}}inspiration | e.g. [Steve Losh](http://stevelosh.com/), [Aleksa Sarai](https://www.cyphar.com/) and [Dan Hough](http://danhough.co.uk/){{/ref}} and tried to find overarching elements. It was also interesting to go off and read about font, colour and layout choices that optimise for readability{{#ref}} readability | Neat [font](http://www.64notes.com/design/stop-helvetica-arial/) and [layout](http://baymard.com/blog/line-length-readability) articles that I came across{{/ref}} - something I had never considered in my previous foray {{#ref}}cow | The landing page to my [Redwall](https://en.wikipedia.org/wiki/Redwall)-inspired fantasy epic: [Chronicles of Whiffy]({{url}}/blog/colophon/assets/cow.html){{/ref}}.
+I earmarked a couple of blogs that had great content, as well as being easy on the eyes{{#ref}}inspiration | e.g. [Steve Losh](http://stevelosh.com/), [Aleksa Sarai](https://www.cyphar.com/) and [Dan Hough](http://danhough.co.uk/){{/ref}} and tried to find overarching elements. It was also interesting to go off and read about font, colour and layout choices that optimise for readability{{#ref}} readability | Neat [font](http://www.64notes.com/design/stop-helvetica-arial/) and [layout](http://baymard.com/blog/line-length-readability) articles that I came across{{/ref}} - something I had never considered in my previous foray{{#ref}}cow | The landing page to my [Redwall](https://en.wikipedia.org/wiki/Redwall)-inspired fantasy epic: [Chronicles of Whiffy]({{url}}/blog/colophon/assets/cow.html){{/ref}}.
 
 ## Authoring
 
 It's difficult to imagine what web publishing tools and solutions might exist in the future, but what's unlikely to change is the underlying language of the web: the HTML that's interpreted by the browser. It's perfectly possible to edit these files in a text editor, but one quickly discovers two pain points:
 
 * HTML is verbose to write and fiddly to edit
-* Each page can contain common elements or themes (e.g. header, footer, navigation)
+* Pages can contain common elements or themes (e.g. header, footer, navigation)
 
 I wanted full control over the styling and publishing process, which meant preparing source files locally and forgoing the publishing platform option. FrontPage, my previous HTML editor of choice, had a graphical interface made it easy to generate HTML; it also had templating features which helped factorise the common elements. Unfortunately, it's no longer around.
 
@@ -44,7 +44,7 @@ This time around, I had the skills and inclination to try a text-based workflow:
 
 ## Summing up
 
-Getting a bespoke blogging framework off the ground took some initial effort, but hopefully the investment encourages me to keep writing. It was also a fun exercise to implement the authoring features I wanted, whilst discovering what those features actually were through writing (how mutually recursive!). Thankfully, the core of what was needed had already been implemented (a Markdown to HTML transpiler and a templating engine) so it was only a matter of gluing those bits together.
+Getting a bespoke blogging framework off the ground took some initial effort, but hopefully the investment encourages me to keep writing. It was also a fun exercise to implement the authoring features I wanted, whilst discovering what those features actually were through writing (how mutually recursive!). Thankfully, the core of what was needed had already been implemented (a [Markdown to HTML compiler](https://github.com/chjj/marked) and a [templating engine](https://mustache.github.io/)) so it was only a matter of gluing those bits together.
 
 The source for this website can found [here](https://github.com/xdl/xiaodili_website) and the tool used to generate the HTML is [here](https://github.com/xdl/craft) - perhaps you can find them useful or informative. Until next time!
 

@@ -1,18 +1,18 @@
 // This is all heavily inspired off the scrolling ToC from http://stevelosh.com/media/js/sjl.js
-//
-// TODO: 
-// Separate out the bookmarking from the ToC?
 
 FONT_LOAD_GRACE = 500;
 OFFSET = 20;
 ACTIVATION_WIDTH_THRESHOLD = 900 + 220;
 
 var BOOKMARK_HTML = function(mark) {
-     return "<div class='bookmark'><div class='ribbon'><div class='mark'>" + mark + "</div></div></div></div>";
+     return "<div class='bookmark' title='Press `" + mark + " to jump back to this section'><div class='ribbon'><div class='mark'>" + mark + "</div></div></div></div>";
 };
 var SCROLLING_BOOKMARK_HTML = function(mark) {
-    return "<code class='mark'>" + mark + "</code>";
+    return "<code class='mark' title='Press `" + mark + " to jump back to this section'>" + mark + "</code>";
 };
+
+var TOC_SCROLLING_HTML = "<div id='toc_scrolling' class='toc'></div>";
+var MARK_PREVIEW_HTML = "<div id='mark_preview'></div>";
 
 //[heading] → tree, array
 var headingsToDataStructures = function(headings) {
@@ -169,26 +169,40 @@ var TocEventHandler = function(headings, $toc_scrolling, $toc_mainflow) {
         headings_map[id].$self.parent().show();
         delete invisible_set[id];
     };
+    var hideHeading = function(id) {
+        headings_map[id].$self.parent().hide();
+        invisible_set[id] = true;
+    };
     var showSiblingHeadings = function(id) {
         var parent = headings_map[id].parent;
         for (var i = 0; i < parent.children.length; i++) {
-            var child = headings_map[parent.children[i]];
-            child.$self.parent().show();
-            delete invisible_set[child.id];
+            var child_id = parent.children[i];
+            showHeading(child_id);
         }
     };
     var showParent = function(id) {
         var parent = headings_map[id].parent;
         if (parent.id !== "_root") {
-            parent.$self.parent().show();
-            delete invisible_set[parent.id];
+            showHeading(parent.id);
+        }
+    };
+    var showH2s = function() {
+        for (var id in headings_map) {
+            if (id !== "_root" && headings_map[id].parent.id == "_root") {
+                showHeading(id);
+            }
+        }
+    };
+    var showBookmarks = function() {
+        var heading_ids = Object.keys(bookmarks);
+        for (var id in bookmarks) {
+            showHeading(id);
         }
     };
     var hideAllHeadings = function() {
         for (var id in headings_map) {
             if (id !== "_root") {
-                invisible_set[id] = true;
-                headings_map[id].$self.parent().hide();
+                hideHeading(id);
             }
         }
     };
@@ -209,7 +223,9 @@ var TocEventHandler = function(headings, $toc_scrolling, $toc_mainflow) {
         boldHeading(new_id);
         showHeading(new_id);
         showSiblingHeadings(new_id);
-        showParent(new_id);
+        //showParent(new_id);
+        showH2s(); //using this, because it's less jittery
+        showBookmarks(); //using this, because it's less jittery
     };
 
     var handleHeadingChange = function(old_id, new_id) {
@@ -274,24 +290,36 @@ var TocEventHandler = function(headings, $toc_scrolling, $toc_mainflow) {
     handleResize();
     //in case they come in via a hashlink
     handleScroll();
+    var bookmarks;
     return {
         handleScroll: handleScroll,
         handleResize: handleResize,
         headings_map: headings_map,
         getCurrentId: function() {
             return current_id;
+        },
+        setBookmarks: function(_bookmarks) {
+            bookmarks = _bookmarks;
         }
     };
 };
 
-var BookmarkEventHandler = function(getCurrentId, headings_map) {
+var BookmarkEventHandler = function(getCurrentId, headings_map, $mark_preview) {
+    var showMarkPreview = function(preview_text) {
+        $mark_preview.text(preview_text);
+        $mark_preview.show();
+    };
+    var clearMarkPreview = function() {
+        $mark_preview.hide();
+        $mark_preview.text('');
+    };
     var gotoMark = function(mark) {
         if (mark in bookmarks) {
             location.hash = '';
             location.hash = bookmarks[mark];
-            console.log("going to mark ", mark);
+            clearMarkPreview();
         } else {
-            console.log("mark not set!");
+            showMarkPreview('mark ' + mark + ' not set');
         }
     };
     var setMark = function(mark) {
@@ -308,18 +336,27 @@ var BookmarkEventHandler = function(getCurrentId, headings_map) {
             $heading_target.after(BOOKMARK_HTML(mark));
         };
         var id = getCurrentId();
+        var heading;
         if (id !== null) {
             if (mark in bookmarks) {
                 var old_id = bookmarks[mark];
                 delete bookmarks[mark];
-                var heading = headings_map[old_id];
+                heading = headings_map[old_id];
                 removeMarkUI(heading);
             }
+            if (id in headingIdToMark) {
+                var old_mark = headingIdToMark[id];
+                delete bookmarks[old_mark];
+                delete headingIdToMark[id];
+                heading = headings_map[id];
+                removeMarkUI(heading);
+            }
+            headingIdToMark[id] = mark;
             bookmarks[mark] = id;
             addMarkUI(headings_map[id]);
-            console.log("mark set!");
+            showMarkPreview('mark set at ' + mark);
         } else {
-            console.log("invalid mark register!");
+            showMarkPreview('invalid mark register!');
         }
     };
     var evaluateKeys = function(first, second) {
@@ -327,9 +364,12 @@ var BookmarkEventHandler = function(getCurrentId, headings_map) {
             setMark(second);
         } else if (first === '`' && second !== '`') {
             gotoMark(second);
+        } else {
+            clearMarkPreview();
         }
     };
     var previewKey = function(key) {
+        showMarkPreview(key);
     };
     var processKeyPress = function(key) {
         keys.push(key);
@@ -343,10 +383,14 @@ var BookmarkEventHandler = function(getCurrentId, headings_map) {
     };
     var emptyKeys = function() {
         keys = [];
+        clearMarkPreview();
     };
 
+    //mark → id
     var bookmarks = {};
     var allowed_keys = { a: true, b: true, c: true, d: true, e: true, f: true, g: true, h: true, i: true, j: true, k: true, l: true, m: true, n: true, o: true, p: true, q: true, r: true, s: true, t: true, u: true, v: true, w: true, x: true, y: true, z: true, "`": true };
+    //reverse lookup of hashtags → mark
+    var headingIdToMark = {};
     var keys = [];
     return {
         handleKeypress: function(key) {
@@ -355,7 +399,8 @@ var BookmarkEventHandler = function(getCurrentId, headings_map) {
             } else {
                 emptyKeys();
             }
-        }
+        },
+        bookmarked_headings: headingIdToMark
     };
 };
 
@@ -363,21 +408,28 @@ var BookmarkEventHandler = function(getCurrentId, headings_map) {
 // Depends on: xdl_notes_generator/lib/toc.js
 $(function() {
     var headings = $('#toc').data('toc');
-    $('body').append("<div id='toc_scrolling' class='toc'></div>");
+
+    $('body').append(TOC_SCROLLING_HTML);
     var $toc_mainflow = $('#toc_mainflow');
     var $toc_scrolling = $('#toc_scrolling');
+
+    $('body').append(MARK_PREVIEW_HTML);
+    var $mark_preview = $('#mark_preview');
+
     setTimeout(function() {
-        var toc_handler = new TocEventHandler(headings, $toc_scrolling, $toc_mainflow);
+        toc_handler = new TocEventHandler(headings, $toc_scrolling, $toc_mainflow);
         $(window).scroll(function() {
             toc_handler.handleScroll();
         });
         $(window).resize(function() {
             toc_handler.handleResize();
         });
-        var bookmark_handler = new BookmarkEventHandler(toc_handler.getCurrentId, toc_handler.headings_map);
+        var bookmark_handler = new BookmarkEventHandler(toc_handler.getCurrentId, toc_handler.headings_map, $mark_preview);
         $(document).on("keyup", function(e) {
             bookmark_handler.handleKeypress(e.key);
         });
-        //$('#toc').after("<div><h2>Blach</h2><div class='bookmark'><div class='ribbon'><div class='mark'>h</div></div></div></div>");
+
+        toc_handler.setBookmarks(bookmark_handler.bookmarked_headings);
+
     }, FONT_LOAD_GRACE);
 });

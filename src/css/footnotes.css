@@ -4,4 +4,7 @@ ul.footnotes {
   ul.footnotes li {
     padding: 0; }
 
+sup.footnote_ref {
+  font-style: normal; }
+
 /*# sourceMappingURL=footnotes.css.map */

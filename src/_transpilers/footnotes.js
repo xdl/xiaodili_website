@@ -9,8 +9,8 @@
  *
  * Transpiles to:
  *
- * <sup><a href="#ref:footnote_hashtag" name="src:footnote_hashtag">[1]</a></sup>
- * <sup><a href="#ref:another_footnote" name="src:another_footnote">[2]</a></sup>
+ * <sup class="footnote_ref"><a href="#ref:footnote_hashtag" name="src:footnote_hashtag">[1]</a></sup>
+ * <sup class="footnote_ref"><a href="#ref:another_footnote" name="src:another_footnote">[2]</a></sup>
  *
  * <ul class="footnotes">
  *  <li><a href="src:footnote_hashtag" name="ref:footnote_hashtag">1.</a> Body of foonote1</li>
@@ -21,6 +21,12 @@
 
 var REF_PREFIX = "ref:"
 var SRC_PREFIX = "src:"
+var REF_HTML = function(ref_prefix, src_prefix, name, count) {
+    return `<sup class="footnote_ref"><a href="#${ref_prefix + name}" name="${src_prefix + name}">[${count}]</a></sup>`;
+};
+var FOOTNOTE_LI_HTML = function(ref_prefix, src_prefix, name, i, desc) {
+    return `<li><a href="#${src_prefix + name}" name="${ref_prefix + name}">${i + 1}.</a> ${desc}</li>`;
+};
 
 var ref = function(text, env) {
     if (!("footnote" in env.page)) { // carve out a footnote configuration object if it doesn't exist
@@ -33,7 +39,7 @@ var ref = function(text, env) {
     var desc = footnote[1].trim();
     var count = ++env.page.footnote.ref_count;
     env.page.footnote.links.push([name, desc]);
-    return `<sup><a href="#${REF_PREFIX + name}" name="${SRC_PREFIX + name}">[${count}]</a></sup>`;
+    return REF_HTML(REF_PREFIX, SRC_PREFIX, name, count);
 };
 
 var footnoteList = function(_, env) {
@@ -42,7 +48,7 @@ var footnoteList = function(_, env) {
         var footnote = env.page.footnote.links[i];
         var name = footnote[0];
         var desc = footnote[1];
-        footnotes += `<li><a href="#${SRC_PREFIX + name}" name="${REF_PREFIX + name}">${i + 1}.</a> ${desc}</li>`;
+        footnotes += FOOTNOTE_LI_HTML(REF_PREFIX, SRC_PREFIX, name, i, desc);
     }
     footnotes += "</ul>";
     return footnotes;

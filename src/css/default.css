@@ -74,7 +74,16 @@ main {
     main a:visited {
       color: #1695A3; }
   main code {
-    color: #EA2E49; }
+    color: #EA2E49;
+    position: relative;
+    bottom: 2px;
+    border: 1px solid #CCC;
+    background: #EEEEEE;
+    padding: 1px 3px;
+    white-space: nowrap; }
+  main pre > code {
+    white-space: pre;
+    border: none; }
 
 header.navbar {
   background-color: #374140; }
